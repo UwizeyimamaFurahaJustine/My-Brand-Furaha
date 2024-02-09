@@ -2,23 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale-1">
     <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
     <link rel="stylesheet" href="dashboard_style.css">
     <title>Admin Dashboard</title>
 </head>
 <body>
+    <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <h2><span>Furahax</span></h2>
+            <h2><span class="lab la-envira"></span><span>Furahax</span></h2>
         </div>
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="" class="active"><span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.5 6C6.35786 6 3 9.35786 3 13.5C3 17.6421 6.35786 21 10.5 21C14.6421 21 18 17.6421 18 13.5H10.5V6Z" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M13.5 10.5H21C21 6.35786 17.6421 3 13.5 3V10.5Z" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                    <a href="" class="active"><span class="las la-home">
                         </span><span>Dashboard</span></a>
                 </li>
                 <li>
@@ -26,28 +24,21 @@
                         </span><span>Blogs</span></a>
                 </li>
                 <li>
-                    <a href=""><span><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.126 20.625C17.0965 20.625 21.126 16.9313 21.126 12.375C21.126 7.81865 17.0965 4.125 12.126 4.125C7.15541 4.125 3.12598 7.81865 3.12598 12.375C3.12598 14.4786 3.98489 16.3984 5.39877 17.8556C5.83136 18.3015 6.13955 18.8942 5.98531 19.496C5.81427 20.1633 5.49398 20.7709 5.06177 21.281C5.21777 21.3089 5.37598 21.3308 5.53564 21.3463C5.72974 21.3653 5.92676 21.375 6.12598 21.375C7.40798 21.375 8.59614 20.9729 9.57115 20.2879C10.381 20.5073 11.2385 20.625 12.126 20.625Z" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                    <a href=""><span class="las la-envelope">
                         
                         </span><span>Comments</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-comment">
+                    <a href=""><span class="las la-comments">
                         </span><span>Messages</span></a>
                 </li>
                 <li>
-                    <a href=""><span><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.8761 6.75C15.8761 8.82107 14.1971 10.5 12.1261 10.5C10.055 10.5 8.37606 8.82107 8.37606 6.75C8.37606 4.67893 10.055 3 12.1261 3C14.1971 3 15.8761 4.67893 15.8761 6.75Z" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M4.6272 20.8682C4.6975 16.7869 8.02793 13.5 12.1261 13.5C16.2243 13.5 19.5548 16.7871 19.6249 20.8685C17.3421 21.916 14.8025 22.5 12.1264 22.5C9.45006 22.5 6.91016 21.9159 4.6272 20.8682Z" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                    <a href=""><span class="las la-user-circle">
                         
-                        </span><span>Profile</span></a>
+                        </span><span>Profile</span></a> 
                 </li>
                 <li>
-                    <a href=""><span><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.876 9.75V6C15.876 4.75736 14.8686 3.75 13.626 3.75L7.62598 3.75C6.38334 3.75 5.37598 4.75736 5.37598 6L5.37598 19.5C5.37598 20.7426 6.38334 21.75 7.62598 21.75H13.626C14.8686 21.75 15.876 20.7426 15.876 19.5V15.75M12.126 9.75L9.12598 12.75M9.12598 12.75L12.126 15.75M9.12598 12.75L21.876 12.75" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                    <a href=""><span class="las la-sign-out-alt"">
                         
                         </span><span>Logout</span></a>
                 </li>
@@ -64,7 +55,7 @@
                 Dashboard
             </h2>
             <div class="user-wrapper">
-                <img src="./assets/user.jpg" width="40px" height="40px">
+                <a href="login.html"><img src="./assets/user.jpg" width="40px" height="40px"></a>
                 <div>
                     <h4>John Doe</h4>
                     <small>Admin</small>
@@ -82,7 +73,7 @@
                 <div class="cards">
                     <div class="card-single">
                         <div>
-                            <h1>54</h1>
+                            <h1>24</h1>
                             <span>Blogs</span>
                         </div>
                         <div>
@@ -91,8 +82,8 @@
                     </div>
                     <div class="card-single">
                         <div>
-                            <h1>54</h1>
-                            <span>Blogs</span>
+                            <h1>102</h1>
+                            <span>Users</span>
                         </div>
                         <div>
                             <span class="las la-users"></span>
@@ -101,10 +92,10 @@
                     <div class="card-single">
                         <div>
                             <h1>54</h1>
-                            <span>Blogs</span>
+                            <span>Messages</span>
                         </div>
                         <div>
-                            <span class="las la-comment"></span>
+                            <span class="las la-comments"></span>
                         </div>
                     </div>
                 </div>
