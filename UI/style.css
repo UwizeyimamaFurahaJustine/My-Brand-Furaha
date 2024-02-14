@@ -39,6 +39,7 @@ nav {
   text-decoration: none;
   transition: 0.3s;
   font-family: 'Luckiest Guy', cursive;
+  cursor: pointer;
 }
 
 .nav__links {
@@ -71,6 +72,17 @@ nav {
 .link .nav__btn:hover {
   background-color: var(--primary-color-dark);
 
+}
+nav .openMenu{
+  font-size: 1.5rem;
+  margin: 10px;
+  display: none;
+  cursor: pointer;
+}
+nav .nav__links .closeMenu{
+  font-size: 1.5rem;
+  display: none;
+  cursor: pointer;
 }
 
 .container {
@@ -160,13 +172,58 @@ nav {
 
 }
 
-@media (width < 900px) {
-  .link a:not(.nav__btn) {
+@media only screen and (max-width: 800px) {
+  nav .nav__links{
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    transition: top 1s ease;
     display: none;
-  }
+    -webkit-transition: top 1s ease;
+    -moz-transition: top 1s ease;
+    -ms-transition: top 1s ease;
+    -o-transition: top 1s ease;
+}
+nav .nav__links .closeMenu{
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+nav .openMenu{
+  display: block;
+}
+nav .nav__links .link a{
+  color: black;
+  font-size: 1.5rem;
+
+}
+nav .nav__links .link a:hover{
+  color: #988F2A;
+
+}
 
   .container {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .image__container {
+    display: flex;
+    flex-direction: column;
+  
+  }
+  
+  .image__container img {
+    width: 430px;
+    height: 500px;
+    margin-left: 20px;
+  
   }
 
   .content__container {
@@ -178,13 +235,45 @@ nav {
     margin-left: auto;
   }
 
-  .image__container {
-    display: block;
-  }
+  
+}
+@media only screen and (max-width:1200px) {
+  nav .nav__links{
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    transition: top 1s ease;
+    display: none;
+    -webkit-transition: top 1s ease;
+    -moz-transition: top 1s ease;
+    -ms-transition: top 1s ease;
+    -o-transition: top 1s ease;
+}
+nav .nav__links .closeMenu{
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+nav .openMenu{
+  display: block;
+}
+nav .nav__links .link a{
+  color: black;
+  font-size: 1.5rem;
 
-  .image__container img {
-    transform: translateY(0) !important;
-  }
+}
+nav .nav__links .link a:hover{
+  color: #988F2A;
+
+}
 }
 
 .container-2 {
@@ -840,9 +929,7 @@ footer .nav__logo {
     font-size: 20px;
   }
 
-  .image__container img {
-    display: none;
-  }
+  
 
   .image__container img,
   .image-container-2 img,
@@ -870,7 +957,8 @@ footer .nav__logo {
   }
 
   .nav__logo a {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    margin-left: 10px;
   }
 
   .container,
