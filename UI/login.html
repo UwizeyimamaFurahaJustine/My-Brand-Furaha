@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login_style.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
 </head>
 <body>
     <nav>
@@ -24,23 +26,31 @@
         <div class="image-holder">
             <img src="./assets/Group 157.jpg" alt="image">
         </div>
-        <form>
+        <form method="post" name="form">
             <h1>Furahax</h1>
             <h3>Welcome to Furahax</h3>
             <div class="form-wrapper">
                 <label class="label">Email</label><br>
-                <input type="text" placeholder="Email Address" class="form-control">
+                <input type="text" name="email" placeholder="Email Address" class="form-control">
+                <span class="error email-error"><i class="bx bx-error-circle error-icon"></i>
+                    <p class="error-text">Please enter a valid Email</p>
+                </span>
+
+                </div>
            
             <div class="form-wrapper">
                 <label class="label">Password</label><br>
-                <input type="password" placeholder="Password" class="form-control">
+                <input type="password" name="password" placeholder="Password" class="form-control">
+                <span class="error password-error"><i class="bx bx-error-circle error-icon"></i>
+                    <p class="error-text">Please enter a strong password</p>
+                </span>
             </div>
-            <button><a href="dashboard.html"> Sign in</a></button>
+            <button type="submit"> Sign in</button>
             <h4 class="text">New to Furahax? <a href="signup.html">Create Account</a></h4>
             </div>
         </form>
        
     </div>
-</div>
+    <script src="./app.js"></script>
 </body>
 </html>

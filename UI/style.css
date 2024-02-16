@@ -31,10 +31,15 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
-
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .nav__logo a {
   font-size: 1.5rem;
   font-weight: 500;
+  margin: 100px;
   color: var(--primary-color);
   text-decoration: none;
   transition: 0.3s;
@@ -168,7 +173,7 @@ nav .nav__links .closeMenu{
   width: 500px;
   height: 500px;
 
-  margin: auto;
+ 
 
 }
 
@@ -361,28 +366,28 @@ nav .nav__links .link a:hover{
 }
 .container-center {
   padding: 5rem 5rem 0 5rem;
-  margin: 0 5rem 0 5rem;
+  margin: 0 1.5rem 0 1.5rem;
 }
 
 #container-home {
   padding: 5rem 5rem 0 5rem;
-  margin: 0 5rem 0 5rem;
+  margin: 0 1.5rem 0 1.5rem;
 }
 #container-about {
   padding: 5rem 5rem 0 5rem;
-  margin: 0 5rem 0 5rem;
+  margin: 0 1.5rem 0 1.5rem;
 }
 #container-portfolio{
   padding: 5rem 5rem 0 5rem;
-  margin: 0 5rem 0 5rem;
+  margin: 0 1.5rem 0 1.5rem;
 }
 #container-blogs {
   padding: 5rem 5rem 0 5rem;
-  margin: 0 5rem 0 5rem;
+  margin: 0 1.5rem 0 1.5rem;
 }
 #container-contact {
   padding: 5rem 5rem 0 5rem;
-  margin: 0 5rem 0 5rem;
+  margin: 0 1.5rem 0 1.5rem;
 }
 
 
