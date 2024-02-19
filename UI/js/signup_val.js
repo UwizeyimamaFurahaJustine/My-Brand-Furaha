@@ -1,76 +1,77 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const contactForm = document.getElementById('contactForm');
-  const fullNameInput = document.getElementById('fullName');
-  const emailInput = document.getElementById('email');
-  const messageInput = document.getElementById('message');
+const form = document.querySelector("form"),
+  emailField = form.querySelector(".email-field"),
+  emailInput = form.querySelector(".email"),
+  passField = form.querySelector(".create-password"),
+  passInput = form.querySelector(".password"),
+  cPassField = form.querySelector(".confirm-password"),
+  cPassInput = form.querySelector(".cPassword"),
+  namesField = form.querySelector(".names-field"), // Select the names field
+  namesInput = form.querySelector(".names"), // Select the names input
+  infoElement = document.getElementById('info');
 
-  function validateForm() {
-  let isValid = true;
-
-  const fullName = document.getElementById('fullName').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-
-  if (fullName === '') {
-      isValid = false;
-      updateError('fullName', 'Please enter your full name');
+function checkNames() {
+  if (namesInput.value.trim() === "") {
+    namesField.classList.add("invalid");
+  } else {
+    namesField.classList.remove("invalid");
   }
-
-  if (email === '') {
-      isValid = false;
-      updateError('email', 'Please enter your email address');
-  } else if (!isValidEmail(email)) {
-      isValid = false;
-      updateError('email', 'Please enter a valid email address');
-  }
-
-  if (message === '') {
-      isValid = false;
-      updateError('message', 'Please enter your message');
-  }
-
-  return isValid;
 }
 
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+function checkEmail() {
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,5}$/;
+  if (!emailInput.value.match(emailPattern)) {
+    emailField.classList.add("invalid");
+  } else {
+    emailField.classList.remove("invalid");
+  }
 }
 
-function updateError(inputId, errorMessage) {
-  const errorElement = document.getElementById(inputId + 'Error');
-  errorElement.innerText = errorMessage;
+function createPass() {
+  const passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  if (!passInput.value.match(passPattern)) {
+    passField.classList.add("invalid");
+  } else {
+    passField.classList.remove("invalid");
+  }
 }
 
-  fullNameInput.addEventListener('input', () => {
-      updateError('fullName', '');
-  });
-  emailInput.addEventListener('input', () => {
-      updateError('email', '');
-  });
-  messageInput.addEventListener('input', () => {
-      updateError('message', '');
-  });
+function confirmPass() {
+  if (passInput.value !== cPassInput.value || cPassInput.value === "") {
+    cPassField.classList.add("invalid");
+  } else {
+    cPassField.classList.remove("invalid");
+  }
+}
 
-  contactForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      if (validateForm()) {
-          const formData = {
-              fullName: fullNameInput.value,
-              email: emailInput.value,
-              message: messageInput.value
-          };
-          saveFormData(formData);
-          contactForm.reset();
-          alert('Message sent successfully!');
-      }
-  });
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  checkNames(); // Validate names
+  checkEmail();
+  createPass();
+  confirmPass();
+
+  if (!namesField.classList.contains("invalid") && // Check if names field is not invalid
+    !emailField.classList.contains("invalid") &&
+    !passField.classList.contains("invalid") &&
+    !cPassField.classList.contains("invalid")) {
+    // Store data in localStorage if validation passes
+    storeUserData();
+  }
 });
 
-
-
-function saveFormData(formData) {
-  let savedData = JSON.parse(localStorage.getItem('formData')) || [];
-  savedData.push(formData);
-  localStorage.setItem('formData', JSON.stringify(savedData));
+function storeUserData() {
+  let userData = [];
+  if (localStorage.getItem('users')) {
+    userData = JSON.parse(localStorage.getItem('users'));
+  }
+  const newUser = {
+    names: namesInput.value, // Store names value
+    email: emailInput.value,
+    password: passInput.value
+  };
+  userData.push(newUser);
+  localStorage.setItem('users', JSON.stringify(userData));
+  infoElement.textContent = "Registered successfully";
+  window.location.href="login.html";
 }
