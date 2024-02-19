@@ -8,11 +8,9 @@
     href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
     rel="stylesheet"
   />
-    <link rel="stylesheet" href="./css/all_blogs_style.css">
-    <link rel="stylesheet" href="./css/new_blog_style.css">
+    <link rel="stylesheet" href="./css/users_style.css">
     <script src="./js/authCheck.js"></script>
-    <script src="./js/new_blog.js"></script>
-    <title>Add New Blog</title>
+    <title>Users</title>
 </head>
 <body>
     <section class="sidebar">
@@ -67,10 +65,9 @@
       </section>
       <section class="home">
     <div class="main-content">
-        <header> 
+        <header>
             <h2>
-                
-                Add New Blog
+                Users
             </h2>
             <div class="user-wrapper">
                 <a href="login.html"><img src="./assets/user.jpg" width="40px" height="40px"></a>
@@ -82,46 +79,55 @@
 
         </header>
         <main>
-            <div class="form-wrapper">
-                <div class="form-container">
-                    <div class="blog-form">
-                        <form id="myForm" action="">
-                            <div class="form-group">
-                                <div>
-                                    <label class="label">Title</label><br>
-                                    <input type="text" id="title" placeholder="Title" class="input-field">
-                                    <div id="titleError" class="error"></div>
-                                </div>
-                                <div>
-                                    <label class="label">Picture</label><br>
-                                    <input type="file" id="picture" class="input-field">
-                                    <div id="pictureError" class="error"></div>
-                                </div>
+                
+                        <div class="table-wrapper">
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                        <th>ID</th>
+                                        <th>Names</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        <th>Action</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody id="userDataBody">
+                                        
+                                    </tbody>
+
+                                </table>
+
                             </div>
-                            <div class="form-group">
-                                <div>
-                                    <label class="label">Description</label><br>
-                                    <textarea id="description" placeholder="Message" class="input-field" rows="4"></textarea><br>
-                                    <div id="descriptionError" class="error"></div>
-                                </div>
-                                <div>
-                                    <label class="label">Date</label><br>
-                                    <input type="date" id="date" class="input-field" readonly>
-                                    <div id="dateError" class="error"></div>
-                             
-                                    <label class="label">Author</label><br>
-                                    <input type="text" id="author" placeholder="Author" class="input-field">
-                                    <div id="authorError" class="error"></div>
-                                </div>
-                            </div>
-                            <button type="button" onclick="validateForm()">Create</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+                        </div>
         </main>
-        </div>
-      </section>
-      <script src="./js/toogle.js"></script>
+    </div>
+    </section>
+        <!-- Modal for viewing user details -->
+<div id="userModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>User Details</h2>
+      <p id="userDetails"></p>
+    </div>
+  </div>
+  
+  <!-- Form for updating user details -->
+  
+  <form id="updateForm" class="modal">
+    <div class="modal-content">
+    <h2>Update User</h2>
+    <label for="updateNames">Names:</label>
+    <input type="text" id="updateNames" name="names" required><br>
+    <label for="updateEmail">Email:</label>
+    <input type="email" id="updateEmail" name="email" required><br>
+    <label for="updatePassword">Password:</label>
+    <input type="text" id="updatePassword" name="password" required><br>
+    <button type="submit">Update</button>
+</div>
+  </form>
+  <script src="./js/users.js"></script>
+  <script src="./js/toogle.js"></script>
 </body>
 </html>

@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <script src="./js/contact_me.js"></script>
     <title>Furahax</title>
 </head>
 
@@ -351,13 +351,17 @@
                 </div>
                 <div class="contact-form">
                     <div>
-                        <form action="">
-                            <input type="text" placeholder="Full Names" class="input-field">
-                            <input type="text" placeholder="Email address" class="input-field">
-                            <input type="text" placeholder="Subject" class="input-field">
-                            <textarea type="text" placeholder="Message" class="input-field" rows="4"></textarea>
-
-                            <button class="load-more">Send Message</button>
+                        <form id="contactForm" action="">
+                            <input type="text" id="fullName" placeholder="Full Names" class="input-field">
+                            <div id="fullNameError" class="error-message"></div>
+                        
+                            <input type="text" id="email" placeholder="Email address" class="input-field">
+                            <div id="emailError" class="error-message"></div>
+                        
+                            <textarea id="message" placeholder="Message" class="input-field" rows="4"></textarea>
+                            <div id="messageError" class="error-message"></div>
+                        
+                            <button type="submit" class="button">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -444,7 +448,7 @@
         </div>
         <p class="footer-copyright">Copyright 2024 All Rights Reserved</p>
     </footer>
-    <script src="./app.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 
 </html>

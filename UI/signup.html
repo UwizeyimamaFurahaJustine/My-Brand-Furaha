@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="signup_style.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/signup_style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
-    
+    <title>Sign Up</title>
 </head>
 <body>
     <div class="navbar">
@@ -35,10 +35,19 @@
         <form action="blogs.html">
             <h1>Furahax</h1>
             <h3>Welcome to Furahax</h3>
+            <div class="form-wrapper names-field">
+                <label class="label">Names</label><br>
+                <div class="form-control">
+                <input type="text" placeholder="Names" class="names">
+            </div>
+                <span class="error email-error"><i class="bx bx-error-circle error-icon"></i>
+                    <p class="error-text">Please enter your names</p>
+                </span>
+            </div>
             <div class="form-wrapper email-field">
                 <label class="label">Email</label><br>
                 <div class="form-control">
-                <input type="email" placeholder="Email Address" class="email">
+                <input type="text" placeholder="Email Address" class="email">
             </div>
                 <span class="error email-error"><i class="bx bx-error-circle error-icon"></i>
                     <p class="error-text">Please enter a valid Email</p>
@@ -64,15 +73,17 @@
                 </span>
             </div>
             <div>
-            <button type="submit"> Sign up</button>
+            <button type="submit" id="create"> Sign up</button>
+            <h4 id="info"></h4>
         </div>
+       
             <h4 class="text">Already have an account? <a href="login.html">Login</a></h4>
 
         </form>
        
     </div>
 </div>
-<script src="signup_val.js"></script>
-<script src="./app.js"></script>
+<script src="./js/signup_val.js"></script>
+<script src="./js/app.js"></script>
 </body>
 </html>

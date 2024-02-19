@@ -85,4 +85,8 @@ button{
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
   }
+
+  .error{
+    color: rgb(236, 6, 6);
+  }
  

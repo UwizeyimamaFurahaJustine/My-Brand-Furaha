@@ -726,6 +726,39 @@ nav .nav__links .link a:hover{
   color: #919394;
 }
 
+.input-field:focus {
+  outline: none;
+  border: 1px solid #333;
+}
+.button{
+    border: none;
+    width: 200px;
+    height: 40px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    background: #988F2A;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.button:hover{
+    background: #d6cd6d;
+}
+.error-message {
+  color: red;
+  margin-top: 5px;
+}
+
 .contact-details {
   padding: 0 0 0 3rem;
   display: grid;
@@ -770,15 +803,7 @@ nav .nav__links .link a:hover{
   gap: 1rem
 }
 
-.contact-form form button {
-  width: fit-content;
-  margin: 1rem 0 0rem 0;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-}
+
 
 .news-letter-container {
   padding: 3rem 4rem 3rem 4rem;

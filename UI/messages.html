@@ -1,59 +1,77 @@
+
+    
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale-1">
-    <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="dashboard_style.css">
-    <link rel="stylesheet" href="all_blogs_style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Messages</title>
-</head>
-<body>
-    <input type="checkbox" id="nav-toggle">
-    <div class="sidebar">
-        <div class="sidebar-brand">
-            <h2><span class="lab la-envira"></span><span>Furahax</span></h2>
-        </div>
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <a href="dashboard.html" class="active"><span class="las la-home">
-                        </span><span>Dashboard</span></a>
-                </li>
-                <li>
-                    <a href="all_blogs.html"><span class="las la-clipboard-list">
-                        </span><span>Blogs</span></a>
-                </li>
-                <li>
-                    <a href="users.html"><span class="las la-envelope">
-                        
-                        </span><span>Users</span></a>
-                </li>
-                <li>
-                    <a href="messages.html"><span class="las la-comments">
-                        </span><span>Messages</span></a>
-                </li>
-                <li>
-                    <a href=""><span class="las la-user-circle">
-                        
-                        </span><span>Profile</span></a> 
-                </li>
-                <li>
-                    <a href=""><span class="las la-sign-out-alt"">
-                        
-                        </span><span>Logout</span></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="main-content">
+    <link rel="stylesheet" href="./css/messages.css"/>
+    <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
+    <link
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet"
+  />
+
+<script src="./js/authCheck.js"></script>
+  </head>
+  <body>
+    <section class="sidebar">
+      <div class="nav-header">
+        <p class="logo">Furahax</p>
+        <i class="bx bx-menu-alt-right btn-menu"></i>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="dashboard.html">
+            <i class="las la-home"></i>
+            <span class="title">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a href="all_blogs.html">
+            <i class="las la-clipboard-list"></i>
+            <span class="title">Blogs</span>
+          </a>
+          <span class="tooltip">Blogs</span>
+        </li>
+        <li>
+          <a href="users.html">
+            <i class="las la-users"></i>
+            <span class="title">Users</span>
+          </a>
+          <span class="tooltip">Users</span>
+        </li>
+        <li>
+          <a href="messages.html">
+            <i class="las la-comments"></i>
+            <span class="title">Messages</span>
+          </a>
+          <span class="tooltip">Messages</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="las la-user-circle"></i>
+            <span class="title">Profile</span>
+          </a>
+          <span class="tooltip">Profile</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="las la-sign-out-alt"></i>
+            <span class="title">Logout</span>
+          </a>
+          <span class="tooltip"><button onclick="logout()">Logout</button></span>
+        </li>
+      </ul>
+    </section>
+    <section class="home">
+      
+      <div class="main-content">
         <header>
             <h2>
-                <label for="nav-toggle">
-                    <span class="las la-bars">
-                        </span>
-                </label>
                 Messages
             </h2>
             <div class="user-wrapper">
@@ -159,5 +177,8 @@
                             </div>
                         </div>
         </main>
-</body>
+    </section>
+
+    <script src="./js/toogle.js"></script>
+  </body>
 </html>
