@@ -1,6 +1,3 @@
-// Authentication 
-
-// login.js
 infoElement = document.getElementById('info');
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
@@ -19,8 +16,15 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         if (user) {
             localStorage.setItem('currentUser', JSON.stringify(user));
             infoElement.textContent = "Login Successful";
-            // Redirect to dashboard
-            window.location.href = 'dashboard.html'; 
+
+            // Check if the logged-in user is an admin
+            if (email === "admin@example.com" && password === "AdminPassword123") {
+                // Redirect to admin dashboard if the user is admin
+                window.location.href = 'admin_dashboard.html';
+            } else {
+                // Redirect to user dashboard if the user is not admin
+                window.location.href = 'user_dashboard.html';
+            }
         } else {
             infoElement.textContent = "Invalid email or password";
         }

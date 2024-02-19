@@ -73,5 +73,5 @@ function storeUserData() {
   userData.push(newUser);
   localStorage.setItem('users', JSON.stringify(userData));
   infoElement.textContent = "Registered successfully";
-  window.location.href="login.html";
+  window.location.href = "login.html";
 }
