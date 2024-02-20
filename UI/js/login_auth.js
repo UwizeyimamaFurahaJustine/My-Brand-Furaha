@@ -20,10 +20,10 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             // Check if the logged-in user is an admin
             if (email === "admin@example.com" && password === "AdminPassword123") {
                 // Redirect to admin dashboard if the user is admin
-                window.location.href = 'admin_dashboard.html';
+                window.location.href = 'dashboard.html';
             } else {
                 // Redirect to user dashboard if the user is not admin
-                window.location.href = 'user_dashboard.html';
+                window.location.href = 'blogs.html';
             }
         } else {
             infoElement.textContent = "Invalid email or password";
