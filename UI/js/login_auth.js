@@ -1,34 +1,45 @@
-infoElement = document.getElementById('info');
+const infoElement = document.getElementById('info');
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    // Retrieve user data from localStorage
-    const users = JSON.parse(localStorage.getItem('users'));
+    // Retrieve regular users' data from localStorage
+    const regularUsers = JSON.parse(localStorage.getItem('users'));
 
-    // Check if there are users stored
-    if (users) {
-        // Find user with matching email and password
-        const user = users.find(user => user.email === email && user.password === password);
+    // Retrieve admin credentials from localStorage
+    const adminCredentials = JSON.parse(localStorage.getItem('adminCredentials'));
+
+    // Check if there are regular users stored
+    if (regularUsers) {
+        // Find regular user with matching email and password
+        const regularUser = regularUsers.find(user => user.email === email && user.password === password);
         
-        if (user) {
-            localStorage.setItem('currentUser', JSON.stringify(user));
+        if (regularUser) {
+            localStorage.setItem('currentUser', JSON.stringify(regularUser));
             infoElement.textContent = "Login Successful";
 
-            // Check if the logged-in user is an admin
-            if (email === "admin@example.com" && password === "AdminPassword123") {
-                // Redirect to admin dashboard if the user is admin
-                window.location.href = 'dashboard.html';
-            } else {
-                // Redirect to user dashboard if the user is not admin
-                window.location.href = 'blogs.html';
-            }
-        } else {
-            infoElement.textContent = "Invalid email or password";
+            // Redirect regular user to the dashboard
+            window.location.href = 'blogs.html';
+            return; // Exit the function
         }
     } else {
-        alert('No users found. Please sign up first.');
+        alert('No regular users found. Please sign up first.');
+        return; // Exit the function
     }
+
+    // Check if there are admin credentials stored
+    if (adminCredentials && adminCredentials.email === email && adminCredentials.password === password) {
+        // Set current user as admin
+        localStorage.setItem('currentUser', JSON.stringify(adminCredentials));
+        infoElement.textContent = "Login Successful";
+
+        // Redirect admin to the admin dashboard
+        window.location.href = 'dashboard.html';
+        return; // Exit the function
+    }
+
+    // If the provided credentials don't match any user or admin credentials, display an error message
+    infoElement.textContent = "Invalid email or password";
 });

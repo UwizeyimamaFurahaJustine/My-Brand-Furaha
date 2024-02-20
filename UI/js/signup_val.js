@@ -1,3 +1,15 @@
+const infoElement = document.getElementById('info');
+
+// Store admin credentials directly
+const adminCredentials = {
+  email: "admin@example.com",
+  password: "AdminPassword123"
+};
+
+// Store admin credentials in localStorage
+localStorage.setItem('adminCredentials', JSON.stringify(adminCredentials));
+
+// Your existing user registration form functionality
 const form = document.querySelector("form"),
   emailField = form.querySelector(".email-field"),
   emailInput = form.querySelector(".email"),
@@ -6,8 +18,7 @@ const form = document.querySelector("form"),
   cPassField = form.querySelector(".confirm-password"),
   cPassInput = form.querySelector(".cPassword"),
   namesField = form.querySelector(".names-field"), // Select the names field
-  namesInput = form.querySelector(".names"), // Select the names input
-  infoElement = document.getElementById('info');
+  namesInput = form.querySelector(".names"); // Select the names input
 
 function checkNames() {
   if (namesInput.value.trim() === "") {
