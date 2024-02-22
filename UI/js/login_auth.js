@@ -1,5 +1,6 @@
 const infoElement = document.getElementById('info');
 
+// Function to handle login form submission
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const email = document.getElementById('email').value;
@@ -17,7 +18,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         const regularUser = regularUsers.find(user => user.email === email && user.password === password);
         
         if (regularUser) {
-            localStorage.setItem('currentUser', JSON.stringify(regularUser));
+            // Store current user's role as 'user'
+            localStorage.setItem('currentUser', JSON.stringify({ email: email, role: 'user' }));
             infoElement.textContent = "Login Successful";
 
             // Redirect regular user to the dashboard
@@ -31,8 +33,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
     // Check if there are admin credentials stored
     if (adminCredentials && adminCredentials.email === email && adminCredentials.password === password) {
-        // Set current user as admin
-        localStorage.setItem('currentUser', JSON.stringify(adminCredentials));
+        // Store current user's role as 'admin'
+        localStorage.setItem('currentUser', JSON.stringify({ email: email, role: 'admin' }));
         infoElement.textContent = "Login Successful";
 
         // Redirect admin to the admin dashboard

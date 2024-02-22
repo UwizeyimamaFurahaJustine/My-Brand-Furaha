@@ -1,64 +1,60 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Retrieve stored data from localStorage
+    // Check if blogs-container element exists before proceeding
+    var blogsContainer = document.getElementById("blogs-container");
+    if (!blogsContainer) {
+        console.error("Error: blogs-container element not found.");
+        return;
+    }
     var storedData = localStorage.getItem("blogs");
-    
     if (storedData) {
-        var blogs = JSON.parse(storedData);
-        var container = document.getElementById("blogs-container");
+        var blogsArray = JSON.parse(storedData);
 
-        // Loop through blogs and create HTML elements for each
-        blogs.forEach(function(blog) {
-            // Create blog element
+        // Iterate through each blog and create HTML elements to display them
+        blogsArray.forEach(function(blog) {
             var blogDiv = document.createElement("div");
             blogDiv.classList.add("blog");
 
-            // Create image element
-            var img = document.createElement("img");
-            img.src = blog.picture;
-            img.alt = "Blog Image";
-            blogDiv.appendChild(img);
+            var image = document.createElement("img");
+            image.src = blog.picture;
+            image.alt = "";
+            image.srcset = "";
 
-            // Create blog content element
-            var contentDiv = document.createElement("div");
-            contentDiv.classList.add("blog-content");
+            var blogContentDiv = document.createElement("div");
+            blogContentDiv.classList.add("blog-content");
 
-            // Create title element
-            var title = document.createElement("h6");
-            title.classList.add("content-title");
+            var titleHeader = document.createElement("h6");
+            titleHeader.classList.add("content-title");
             var titleLink = document.createElement("a");
             titleLink.href = "view_blog.html";
             titleLink.textContent = blog.title;
-            title.appendChild(titleLink);
-            contentDiv.appendChild(title);
+            titleLink.addEventListener("click", function(event) {
+                localStorage.setItem("currentBlog", JSON.stringify(blog));
+            });
+            titleHeader.appendChild(titleLink);
 
-            // Create description paragraph
-            var description = document.createElement("p");
-            description.textContent = blog.description;
-            contentDiv.appendChild(description);
+            var descriptionParagraph = document.createElement("p");
+            descriptionParagraph.textContent = blog.description;
 
-            // Create timestamp div
-            var timestampDiv = document.createElement("div");
-            timestampDiv.classList.add("blog-timestamp");
+            var blogTimestampDiv = document.createElement("div");
+            blogTimestampDiv.classList.add("blog-timestamp");
+            var dateParagraph = document.createElement("p");
+            dateParagraph.textContent = blog.date;
+            var authorParagraph = document.createElement("p");
+            authorParagraph.classList.add("text-bold");
+            authorParagraph.textContent = "By " + blog.author;
 
-            // Create date paragraph
-            var date = document.createElement("p");
-            date.textContent = blog.date;
-            timestampDiv.appendChild(date);
+            blogTimestampDiv.appendChild(dateParagraph);
+            blogTimestampDiv.appendChild(authorParagraph);
 
-            // Create author paragraph
-            var author = document.createElement("p");
-            author.classList.add("text-bold");
-            author.textContent = "By " + blog.author;
-            timestampDiv.appendChild(author);
+            blogContentDiv.appendChild(titleHeader);
+            blogContentDiv.appendChild(descriptionParagraph);
+            blogContentDiv.appendChild(blogTimestampDiv);
 
-            // Append timestamp div to content div
-            contentDiv.appendChild(timestampDiv);
+            blogDiv.appendChild(image);
+            blogDiv.appendChild(blogContentDiv);
 
-            // Append content div to blog element
-            blogDiv.appendChild(contentDiv);
-
-            // Append blog element to container
-            container.appendChild(blogDiv);
+            blogsContainer.appendChild(blogDiv);
         });
     }
 });
+

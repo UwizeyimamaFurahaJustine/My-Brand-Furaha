@@ -8,6 +8,7 @@ const adminCredentials = {
 
 // Store admin credentials in localStorage
 localStorage.setItem('adminCredentials', JSON.stringify(adminCredentials));
+console.log("done");
 
 // Your existing user registration form functionality
 const form = document.querySelector("form"),
