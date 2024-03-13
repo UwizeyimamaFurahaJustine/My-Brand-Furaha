@@ -3,7 +3,8 @@ const infoElement = document.getElementById('info');
 // Store admin credentials directly
 const adminCredentials = {
   email: "admin@example.com",
-  password: "AdminPassword123"
+  password: "AdminPassword123",
+  role: "admin"
 };
 
 // Store admin credentials in localStorage
@@ -80,7 +81,8 @@ function storeUserData() {
   const newUser = {
     names: namesInput.value, // Store names value
     email: emailInput.value,
-    password: passInput.value
+    password: passInput.value,
+    role: "user"
   };
   userData.push(newUser);
   localStorage.setItem('users', JSON.stringify(userData));

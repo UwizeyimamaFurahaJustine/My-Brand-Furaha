@@ -40,7 +40,7 @@ function displayUserDataInTable() {
         const tableRows = generateTableRows(userData);
         tableBody.innerHTML = tableRows;
     } else {
-        tableBody.innerHTML = '<tr><td colspan="6">No data available</td></tr>';
+        tableBody.innerHTML = '<tr><td colspan="8">No data available</td></tr>';
     }
 }
   
@@ -50,7 +50,7 @@ function displayUserDataInTable() {
     const user = userData[index];
     const modal = document.getElementById('userModal');
     const blogDetails = document.getElementById('blogDetails');
-    blogDetails.innerHTML = `<strong>Tile:</strong> ${user.title}<br><strong>Picture:</strong><img src="${user.picture}" style="max-width: 100px; max-height: 100px;"><br><strong>Description:</strong> ${user.description}<br><strong>Comments:</strong> ${user.names}<br><strong>Likes:</strong> ${user.names}<br><strong>Date:</strong> ${user.date}<br><strong>Author:</strong> ${user.author}`;
+    blogDetails.innerHTML = `<strong>Tile:</strong> ${user.title}<br><strong>Picture:</strong><img src="${user.picture}" style="max-width: 100px; max-height: 100px;"><br><strong>Description:</strong> ${user.description}<br><strong>Comments:</strong> <br><strong>Likes:</strong> $<br><strong>Date:</strong> ${user.date}<br><strong>Author:</strong> ${user.author}`;
     modal.style.display = "block";
 
     // Close the modal when the close button or outside the modal content is clicked

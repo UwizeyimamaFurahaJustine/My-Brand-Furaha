@@ -13,6 +13,7 @@ function restrictAccess() {
     const isAdmin = currentUser.role === 'admin';
     const isDashboardPage = pathname.includes('dashboard.html');
     const isUsersPage = pathname.includes('blogs.html');
+    
 
     if (isLoginOrSignupPage || (isAdmin && isUsersPage) || (!isAdmin && isDashboardPage)) {
         window.location.href = isAdmin ? 'dashboard.html' : 'blogs.html';
