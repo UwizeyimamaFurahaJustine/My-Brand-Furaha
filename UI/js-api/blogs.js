@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p>${description}</p>
                     <div class="blog-timestamp">
                     <div class="reaction">
+                    <button onclick="viewBlog('${blog._id}')">View</button>
             <svg
               width="25"
               height="25"
@@ -82,11 +83,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
             `;
+            // console.log(blog._id);
+            // blogElement.addEventListener("click", () => {
+            //     // Redirect to viewblog.html with the blog ID as a query parameter
+            //     window.location.href = `view_blog.html?id=${blog._id}`;
+            // });
       blogsContainer.appendChild(blogElement);
     });
+   
 
     skip += blogsData.length;
   };
+  // Function to handle click on the "View" button for a blog
+
 
   // Event listener for Load More button
   loadMoreButton.addEventListener("click", renderBlogs);
@@ -94,3 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial render
   renderBlogs();
 });
+function viewBlog(blogId) {
+    // Redirect the user to view_blog.html with the blogId parameter
+    window.location.href = `view_blog.html?blogId=${blogId}`;
+}

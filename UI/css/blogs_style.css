@@ -65,6 +65,15 @@
   justify-content: start;
   gap: 10px;
 }
+.reaction button{
+  background-color: #d3d3d3;
+  color: #988F2A;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
 .reactionn{
   display: block;
   margin-left: 100px;
