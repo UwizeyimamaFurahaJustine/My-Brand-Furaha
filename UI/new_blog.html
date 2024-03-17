@@ -10,8 +10,9 @@
   />
     <link rel="stylesheet" href="./css/all_blogs_style.css">
     <link rel="stylesheet" href="./css/new_blog_style.css">
-    <script src="./js/authCheck.js"></script>
-    <script src="./js/new_blog.js"></script>
+    <!-- <script src="./js/authCheck.js"></script>
+    <script src="./js/new_blog.js"></script> -->
+    <script src="./js-api/app.js"></script>
     <title>Add New Blog</title>
 </head>
 <body>
@@ -85,26 +86,26 @@
             <div class="form-wrapper">
                 <div class="form-container">
                     <div class="blog-form">
-                        <form id="myForm" action="">
+                        <form id="addBlogForm" action="">
                             <div class="form-group">
                                 <div>
                                     <label class="label">Title</label><br>
-                                    <input type="text" id="title" placeholder="Title" class="input-field">
+                                    <input type="text" id="title" name="title" class="input-field">
                                     <div id="titleError" class="error"></div>
                                 </div>
                                 <div>
                                     <label class="label">Picture</label><br>
-                                    <input type="file" id="picture" class="input-field">
+                                    <input type="file" id="image" name="image" class="input-field">
                                     <div id="pictureError" class="error"></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div>
                                     <label class="label">Description</label><br>
-                                    <textarea id="description" placeholder="Message" class="input-field" rows="4"></textarea><br>
+                                    <textarea id="description" name="description" class="input-field" rows="4"></textarea><br>
                                     <div id="descriptionError" class="error"></div>
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <label class="label">Date</label><br>
                                     <input type="date" id="date" class="input-field" readonly>
                                     <div id="dateError" class="error"></div>
@@ -112,9 +113,9 @@
                                     <label class="label">Author</label><br>
                                     <input type="text" id="author" placeholder="Author" class="input-field">
                                     <div id="authorError" class="error"></div>
-                                </div>
+                                </div> -->
                             </div>
-                            <button type="button" onclick="validateForm()">Create</button>
+                            <button type="submit">Create</button>
                         </form>
                     </div>
                 </div>
@@ -123,6 +124,8 @@
         </div>
       </section>
       <script src="./js/toogle.js"></script>
-      <script src="./js/rbac.js"></script>
+      <!-- <script src="./js/rbac.js"></script> -->
+      <script src="./js-api/addblog.js"></script>
+      
 </body>
 </html>

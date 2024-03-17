@@ -644,14 +644,18 @@ nav .nav__links .link a:hover{
 }
 
 .blog-timestamp {
+  /* width: 80%; */
   margin-top: 20px;
   display: flex;
+  gap: 5px;
+  align-items: center;
   justify-content: space-between;
 }
 
 .blog-content {
   padding: 1rem 2rem 1rem 1rem;
   display: grid;
+  width: 100%;
   align-items: center;
 }
 

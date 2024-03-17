@@ -9,7 +9,7 @@
     rel="stylesheet"
   />
     <link rel="stylesheet" href="./css/users_style.css">
-    <script src="./js/authCheck.js"></script>
+    <script src="./js-api/app.js"></script>
     <title>Users</title>
 </head>
 <body>
@@ -89,6 +89,7 @@
                                         <th>Names</th>
                                         <th>Email</th>
                                         <th>Password</th>
+                                        <th>Created At</th>
                                         <th>Action</th>
                                             
                                         </tr>
@@ -104,31 +105,27 @@
         </main>
     </div>
     </section>
-        <!-- Modal for viewing user details -->
-<div id="userModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>User Details</h2>
-      <p id="userDetails"></p>
-    </div>
+
+  
+
+
+<!-- Form for updating user details -->
+<form id="updateForm" class="modal">
+  <div class="modal-content">
+      <h2>Update User</h2>
+      <input type="hidden" id="updateUserId" name="userId">
+      <label for="updateNames">Names:</label>
+      <input type="text" id="updateNames" name="names" required><br>
+      <label for="updateEmail">Email:</label>
+      <input type="email" id="updateEmail" name="email" required><br>
+      
+      <button type="submit">Update</button>
   </div>
-  
-  <!-- Form for updating user details -->
-  
-  <form id="updateForm" class="modal">
-    <div class="modal-content">
-    <h2>Update User</h2>
-    <label for="updateNames">Names:</label>
-    <input type="text" id="updateNames" name="names" required><br>
-    <label for="updateEmail">Email:</label>
-    <input type="email" id="updateEmail" name="email" required><br>
-    <label for="updatePassword">Password:</label>
-    <input type="text" id="updatePassword" name="password" required><br>
-    <button type="submit">Update</button>
-</div>
-  </form>
-  <script src="./js/users.js"></script>
+</form>
+
+
+  <script src="./js-api/viewusers.js"></script>
   <script src="./js/toogle.js"></script>
-  <script src="./js/rbac.js"></script>
+ 
 </body>
 </html>

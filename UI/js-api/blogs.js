@@ -1,49 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/view_blog_style.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <!--<script src="./js/rbac.js"></script>-->
-    <title>View Blog</title>
-  </head>
-  <body>
-    <nav>
-      <div class="nav__logo"><a href="#">Furahax</a></div>
-      <div class="user-wrapper">
-        <img src="./assets/user.jpg" width="40px" height="40px" />
-        <div>
-          <h4><a href="login.html">John Doe</a></h4>
-          <small>Admin</small>
-        </div>
-      </div>
-    </nav>
-    <div class="heading">
-      <svg
-        width="31"
-        height="20"
-        viewBox="0 0 31 30"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M24.5063 15L5.75635 15M5.75635 15L14.1938 23.4375M5.75635 15L14.1938 6.5625"
-          stroke="#000000"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-      <a href="blogs.html"><p class="">Back</p></a>
-    </div>
-    <section>
-      <div id="singleBlog-container"></div>
-      <div class="reaction">
-        <button id="likeButton" onclick="likeBlog()">
+// JavaScript code
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loadMoreButton = document.getElementById("load-more");
+  let skip = 0; // Variable to track how many blogs have been loaded
+
+  // Function to fetch blogs from the backend
+  const fetchBlogs = async () => {
+    try {
+      const response = await fetch(`http://localhost:7000/blogs?skip=${skip}`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch blogs");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // Function to render blogs on the frontend
+  const renderBlogs = async () => {
+    const blogsContainer = document.getElementById("blogs-container");
+    const blogsData = await fetchBlogs();
+
+    if (blogsData.length === 0) {
+      loadMoreButton.style.display = "none";
+      return;
+    }
+
+    blogsData.forEach((blog) => {
+      const blogElement = document.createElement("div");
+      blogElement.classList.add("blog");
+      var title = blog.title;
+      var description = blog.description;
+      var date = new Date(blog.createdAt);
+      description = description.substring(0, 100) + "...";
+      date = date.toLocaleString();
+      blogElement.innerHTML = `
+                <img src="http://localhost:7000/images/${blog.image}"
+                    alt="" srcset="">
+                <div class="blog-content">
+                    <h6 class="content-title">${title}</h6>
+                    <p>${description}</p>
+                    <div class="blog-timestamp">
+                    <div class="reaction">
             <svg
-              width="31"
-              height="30"
+              width="25"
+              height="25"
               viewBox="0 0 41 40"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -56,12 +59,10 @@
                 stroke-linejoin="round"
               />
             </svg>
-        </button>
-        <h4 id="viewCounter">0</h4>
-        <button id="commentButton" onclick="toggleCommentSection()">
+        <h5 id="viewCounter">${blog.likesNo}</h5>
             <svg
-              width="31"
-              height="30"
+              width="25"
+              height="25"
               viewBox="0 0 41 40"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -74,19 +75,22 @@
                 stroke-linejoin="round"
               />
             </svg>
-        </button>
-        <h4 id="commentCounter">0</h4>
+        <h5 id="commentCounter">${blog.commentsNo}</h5>
       </div>
-      <div class="comment-form">
-        <span>Leave Comment</span><br />
-        <input type="text" id="commentInput" name="comment" /><br />
-        <button onclick="addComment()">Submit</button>
-      </div>
-      <div class="reactionn" id="commentList"></div>
-    </section>
+                        <p>${date}</p>
+                        <p class="text-bold">By Admin</p>
+                    </div>
+                </div>
+            `;
+      blogsContainer.appendChild(blogElement);
+    });
 
-    <p class="footer-copyright">Copyright 2024 All Rights Reserved</p>
-    <!-- <script src="./js/view_blog.js"></script>
-    <script src="./js/reaction.js"></script> -->
-  </body>
-</html>
+    skip += blogsData.length;
+  };
+
+  // Event listener for Load More button
+  loadMoreButton.addEventListener("click", renderBlogs);
+
+  // Initial render
+  renderBlogs();
+});

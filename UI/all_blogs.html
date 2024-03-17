@@ -12,8 +12,8 @@
     href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
     rel="stylesheet"
   />
-  <script src="./js/authCheck.js"></script>
-
+  <!-- <script src="./js/authCheck.js"></script> -->
+  <script src="./js-api/app.js"></script>
   </head>
   <body>
     <section class="sidebar">
@@ -98,7 +98,7 @@
                                     <th>Comments</th>
                                     <th>Likes</th>
                                     <th>Date</th>
-                                    <th>Author</th>
+                                    <!-- <th>Author</th> -->
                                     <th>Action</th>
                                         
                                     </tr>
@@ -114,6 +114,7 @@
     </main>
 
     <script src="./js/toogle.js"></script>
+    
        <!-- Modal for viewing user details -->
 <div id="userModal" class="modal">
     <div class="modal-content">
@@ -127,21 +128,20 @@
   
   <form id="updateForm" class="modal">
     <div class="modal-content">
+      <span class="close">&times;</span>
+    <input type="hidden" id="updateBlogId" name="blogId">
     <h2>Update User</h2>
-    <label for="updateTitle">Title:</label>
+    <label for="updateTitle">Title:</label><br>
     <input type="text" id="updateTitle" name="title" required><br>
-    <img id="updatePicturePreview" src="" alt="Update Picture Preview" style="max-width: 100px; max-height: 100px;">
-    <label for="updatePicture">Picture:</label>
-    <input type="file" id="updatePicture" name="picture"><br>
-    <label for="updateDescription">Description:</label>
-    <textarea id="updateDescription" name="description" rows="4" required></textarea>
-    <label for="updateDate">Date:</label>
-    <input type="date" id="updateDate" name="date" required><br>
-    <label for="updateAuthor">Author:</label>
-    <input type="text" id="updateAuthor" name="author" required><br>
+    <img id="updatePicturePreview" src="" alt="Update Picture Preview" style="max-width: 100px; max-height: 100px;"><br>
+    <label for="updatePicture">Picture:</label><br>
+    <input type="file" id="updateImage" name="image"><br>
+    <label for="updateDescription">Description:</label><br>
+    <textarea id="updateDescription" name="description" rows="4" required></textarea><br>
+    
     <button type="submit">Update</button>
 </div>
   </form>
-    <script src="./js/all_blogs.js"></script>
+  <script src="./js-api/blogs-list.js"></script>
   </body>
 </html>
