@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Fetch all blogs from the backend
-    const baseURL = 'http://localhost:7000';
+    const baseURL = 'https://api-furahax.onrender.com';
     fetch(`${baseURL}/users`, {
         method: 'GET',
         headers: {
@@ -94,7 +94,7 @@ function editUser(userId) {
         // Set the value of the hidden input field for blogId
         document.getElementById('updateUserId').value = userId;
 
-        const baseURL = 'http://localhost:7000';
+        const baseURL = 'https://api-furahax.onrender.com';
 
         fetch(`${baseURL}/users/${userId}`, {
             method: 'GET',

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Fetch all blogs from the backend
-    const baseURL = 'http://localhost:7000';
+    const baseURL = 'https://api-furahax.onrender.com';
     fetch(baseURL + '/blogs')
         .then(response => {
             if (!response.ok) {
@@ -129,7 +129,7 @@ function editBlog(blogId) {
         // Set the value of the hidden input field for blogId
         document.getElementById('updateBlogId').value = blogId;
 
-        const baseURL = 'http://localhost:7000'; // Define baseURL
+        const baseURL = 'https://api-furahax.onrender.com'; // Define baseURL
 
         // You can also fetch the current data of the blog and populate the form fields
         fetch(`${baseURL}/blogs/${blogId}`, {
