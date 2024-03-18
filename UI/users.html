@@ -9,10 +9,10 @@
     rel="stylesheet"
   />
     <link rel="stylesheet" href="./css/users_style.css">
-    <script src="./js-api/app.js"></script>
+    <script src="./js-api/app.js" type="module"></script>
     <title>Users</title>
 </head>
-<body>
+<body id="adminPage">
     <section class="sidebar">
         <div class="nav-header">
           <p class="logo">Furahax</p>
@@ -59,7 +59,7 @@
               <i class="las la-sign-out-alt"></i>
               <span class="title">Logout</span>
             </a>
-            <span class="tooltip"><button onclick="logout()">Logout</button></span>
+            <span class="tooltip">Logout</span>
           </li>
         </ul>
       </section>
@@ -75,6 +75,30 @@
                     <h4>John Doe</h4>
                     <small>Admin</small>
                 </div>
+            </div><div class="user-wrapper">
+              <div class="dropdown">
+                <img src="./assets/user.jpg" width="40px" height="40px">
+                <div class="dropdown-content">
+                  <a href="#" id="profileLink" onclick="viewBlog('blogId')">Profile</a>
+                  <a href="#" id="updateLink">Update Profile</a>
+                  <a href="#" id="logout">Logout</a>
+                </div>
+              </div>
+              <div>
+                <h4><a href="login.html">John Doe</a></h4>
+                <small>Admin</small>
+              </div>
+            </div>
+            
+            <!-- The Modal -->
+            <div id="profileModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>User Profile</h2>[]
+                <div id="userDetails"></div>
+              
+              </div>
             </div>
 
         </header>
@@ -110,8 +134,8 @@
 
 
 <!-- Form for updating user details -->
-<form id="updateForm" class="modal">
-  <div class="modal-content">
+<form id="updateUser" class="usermodal">
+  <div class="usermodal-content">
       <h2>Update User</h2>
       <input type="hidden" id="updateUserId" name="userId">
       <label for="updateNames">Names:</label>
@@ -125,6 +149,7 @@
 
 
   <script src="./js-api/viewusers.js"></script>
+  <script src="./js-api/updateuser.js"></script>
   <script src="./js/toogle.js"></script>
  
 </body>

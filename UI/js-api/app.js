@@ -1,14 +1,5 @@
 // app.js
 
-// const jwtDecode = require('jwt-decode');
-
-// const token = "eyJ0eXAiO.../// jwt token";
-// const decoded = jwtDecode(token);
-
-// console.log(decoded);
-
-
-
 // Function to check if user is authenticated
 function isAuthenticated() {
     const token = localStorage.getItem('token');
@@ -19,7 +10,7 @@ function isAuthenticated() {
 function isAdmin() {
     const token = localStorage.getItem('token');
     if (token) {
-        const decodedToken = jwt_decode(token);
+        const decodedToken = jwt_token(token);
         return decodedToken.role === 'admin';
     }
     return false;
@@ -29,7 +20,7 @@ function isAdmin() {
 function isUser() {
     const token = localStorage.getItem('token');
     if (token) {
-        const decodedToken = jwt_decode(token);
+        const decodedToken = jwt_token(token);
         return decodedToken.role === 'user';
     }
     return false;
@@ -45,14 +36,14 @@ function redirectUnauthorized() {
 // Function to redirect non-admin users
 function redirectNonAdmin() {
     if (!isAdmin()) {
-        window.location.href = 'login.html'; // Redirect to unauthorized page
+        window.location.href = 'login.html'; // Redirect to login page
     }
 }
 
 // Function to redirect non-user users
 function redirectNonUser() {
     if (!isUser()) {
-        window.location.href = 'login.html'; // Redirect to unauthorized page
+        window.location.href = 'login.html'; // Redirect to login page
     }
 }
 
