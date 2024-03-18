@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const signupUser = async (userData) =>{
     try {
-        const response = await fetch(`http://localhost:7000/auth/signup`, {
+        const response = await fetch(`https://api-furahax.onrender.com/auth/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

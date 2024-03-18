@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Function to fetch blogs from the backend
     const fetchBlogs = async () => {
       try {
-        const response = await fetch(`http://localhost:7000/blogs?skip=${skip}`);
+        const response = await fetch(`https://api-furahax.onrender.com/blogs?skip=${skip}`);
         if (!response.ok) {
           throw new Error("Failed to fetch blogs");
         }
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         description = description.substring(0, 200) + "...";
         date = date.toLocaleString();
         blogElement.innerHTML = `
-                  <img src="http://localhost:7000/images/${blog.image}"
+                  <img src="https://api-furahax.onrender.com/images/${blog.image}"
                       alt="" srcset="">
                   <div class="blog-content">
                       <h6 class="content-title">${title}</h6>

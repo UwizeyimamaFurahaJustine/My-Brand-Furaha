@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Function to fetch the details of the blog
 function fetchBlogDetails(blogId) {
-    fetch(`http://localhost:7000/blogs/${blogId}`, {
+    fetch(`https://api-furahax.onrender.com/blogs/${blogId}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -29,7 +29,7 @@ function fetchBlogDetails(blogId) {
             blogDetailsElement.innerHTML = `
                 <div class="blog-content-container">
                     <p class="blog-title"> ${data.title}</p>
-                    <div class="blog-image"><img src="http://localhost:7000/images/${data.image}" alt="Blog Image"></div>
+                    <div class="blog-image"><img src="https://api-furahax.onrender.com/images/${data.image}" alt="Blog Image"></div>
                     <p class="blog-description"> ${data.description}</p>
                 </div>
                 <div class="blog-reaction">
@@ -106,7 +106,7 @@ function toggleLike(blogId) {
 // Function to like a blog post
 function likeBlog(blogId) {
     console.log(blogId)
-    fetch(`http://localhost:7000/likes/${blogId}`, {
+    fetch(`https://api-furahax.onrender.com/likes/${blogId}`, {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -127,7 +127,7 @@ function likeBlog(blogId) {
 
 // Function to unlike a blog post
 function unlikeBlog(blogId) {
-    fetch(`http://localhost:7000/likes/${blogId}`, {
+    fetch(`https://api-furahax.onrender.com/likes/${blogId}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -148,7 +148,7 @@ function unlikeBlog(blogId) {
 
 // Function to update the likes count displayed on the page
 function updateLikesCount(blogId) {
-    fetch(`http://localhost:7000/likes/${blogId}`, {
+    fetch(`https://api-furahax.onrender.com/likes/${blogId}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -180,7 +180,7 @@ function addComment(blogId) {
         return;
     }
 
-    fetch(`http://localhost:7000/comments/${blogId}`, {
+    fetch(`https://api-furahax.onrender.com/comments/${blogId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -202,7 +202,7 @@ function addComment(blogId) {
 
 // Function to fetch and display comments
 function fetchComments(blogId) {
-    fetch(`http://localhost:7000/comments/${blogId}`, {
+    fetch(`https://api-furahax.onrender.com/comments/${blogId}`, {
         method: 'GET',
         headers: {
             

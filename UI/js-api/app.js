@@ -45,14 +45,14 @@ function redirectUnauthorized() {
 // Function to redirect non-admin users
 function redirectNonAdmin() {
     if (!isAdmin()) {
-        window.location.href = 'unauthorized.html'; // Redirect to unauthorized page
+        window.location.href = 'login.html'; // Redirect to unauthorized page
     }
 }
 
 // Function to redirect non-user users
 function redirectNonUser() {
     if (!isUser()) {
-        window.location.href = 'unauthorized.html'; // Redirect to unauthorized page
+        window.location.href = 'login.html'; // Redirect to unauthorized page
     }
 }
 

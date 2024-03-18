@@ -3,7 +3,7 @@ function deleteMessage(messageId) {
     
     console.log('Deleting message with ID:', messageId);
     // Send an HTTP DELETE request to delete the message with the specified ID
-    fetch(`http://localhost:7000/messages/${messageId}`, {
+    fetch(`https://api-furahax.onrender.com/messages/${messageId}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}` // Add the user's authentication token
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
    // Function to fetch messages
    const fetchMessages = async () => {
     try {
-        const response = await fetch('http://localhost:7000/messages',
+        const response = await fetch('https://api-furahax.onrender.com/messages',
         {
         method: 'GET',
         headers: {
@@ -71,6 +71,23 @@ const displayMessages = (messages) => {
 };
 
 
+// Function to handle user logout
+const logoutUser = () => {
+    // Remove token from localStorage or session storage
+    localStorage.removeItem('token');
+    // Redirect to the login page
+    window.location.href = 'login.html';
+}
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Other code ...
+
+    // Event listener for logout button
+    document.getElementById('logoutButton').addEventListener('click', () => {
+        logoutUser(); // Call the logout function
+    });
+
+});
 
 
 

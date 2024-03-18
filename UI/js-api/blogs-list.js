@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const blogId = formData.get('blogId');
 
             // Send an HTTP PUT request to update the blog
-            fetch(`http://localhost:7000/blogs/${blogId}`, {
+            fetch(`https://api-furahax.onrender.com/blogs/${blogId}`, {
                 method: 'PUT',
                 body: formData,
                 headers: {
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Function to handle click on the "View" button for a blog
 function viewBlog(blogId) {
     // Send an HTTP GET request to fetch the details of the blog with the specified ID
-    fetch(`http://localhost:7000/blogs/${blogId}`, {
+    fetch(`https://api-furahax.onrender.com/blogs/${blogId}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -96,7 +96,7 @@ function viewBlog(blogId) {
             blogDetailsElement.innerHTML = `
             <p><strong>Title</strong> <br> ${data.title}</p>
             <p><strong>Description</strong> <br> ${data.description}</p>
-            <p><strong>Image</strong><br> <img src="http://localhost:7000/images/${data.image}" alt="Blog Image" style="width: 100px; height: 100px;">
+            <p><strong>Image</strong><br> <img src="https://api-furahax.onrender.com/images/${data.image}" alt="Blog Image" style="width: 100px; height: 100px;">
             </p>
             <!-- Add more details as needed -->
         `;
@@ -173,7 +173,7 @@ function editBlog(blogId) {
 // Function to handle click on the "Delete" button for a blog
 function deleteBlog(blogId) {
     // Send an HTTP DELETE request to delete the blog with the specified ID
-    fetch(`http://localhost:7000/blogs/${blogId}`, {
+    fetch(`https://api-furahax.onrender.com/blogs/${blogId}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}` // Add the user's authentication token

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to handle user login
     const loginUser = async (userData) => {
         try {
-            const response = await fetch(`http://localhost:7000/auth/login`, {
+            const response = await fetch(`https://api-furahax.onrender.com/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json' // Correct content type

@@ -136,7 +136,7 @@ function editUser(userId) {
 
 // Function to delete a user
 function deleteUser(userId) {
-    fetch(`http://localhost:7000/users/${userId}`, {
+    fetch(`https://api-furahax.onrender.com/users/${userId}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`

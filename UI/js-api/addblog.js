@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(this);
 
         // Send an HTTP POST request to the backend
-        fetch('http://localhost:7000/blogs', {
+        fetch('https://api-furahax.onrender.com/blogs', {
             method: 'POST',
             body: formData,
             headers: {

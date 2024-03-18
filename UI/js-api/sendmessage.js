@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to send a message
     const sendMessage = async (name, email, message) => {
         try {
-            const response = await fetch('http://localhost:7000/messages', {
+            const response = await fetch('https://api-furahax.onrender.com/messages', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

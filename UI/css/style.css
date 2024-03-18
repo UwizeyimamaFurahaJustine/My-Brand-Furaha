@@ -513,7 +513,7 @@ nav .nav__links .link a:hover{
   padding: 2rem 0 2rem 0;
 }
 
-.portfolio-card {}
+
 
 .portfolio-card img {
   width: 100%;
@@ -1098,7 +1098,7 @@ footer .nav__logo {
     justify-content: center;
   }
 
-  .contact-detail {}
+ 
 
   .contact-form form {
     width: fit-content;
