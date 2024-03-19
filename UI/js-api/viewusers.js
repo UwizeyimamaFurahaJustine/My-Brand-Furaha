@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${user.username}</td>
             <td>${user.email}</td>
             <td>${user.password}</td>
-            <td>${user.createdAt}</td>
+            <td>19/03/2024</td>
             <td>
                 <button onclick="editUser('${user._id}')">Edit</button>
                 <button onclick="deleteUser('${user._id}')">Delete</button>
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error fetching blogs:', error);
         });
 
-        const updateForm = document.getElementById('updateForm');
+        const updateForm = document.getElementById('updateUser');
         if (updateForm) {
             updateForm.addEventListener('submit', async (event) => {
                 event.preventDefault();
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
         
                 try {
-                    const response = await fetch(`${baseURL}/users/${userId}`, {
+                    const response = await fetch(`https://api-furahax.onrender.com/users/${userId}`, {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Function to handle edit user click event
 function editUser(userId) {
     console.log('Edit user with ID:', userId);
-    const updateForm = document.getElementById('updateForm');
+    const updateForm = document.getElementById('updateUser');
     if (updateForm) {
         updateForm.style.display = 'block';
 
