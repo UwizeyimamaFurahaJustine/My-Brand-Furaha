@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/view_blog_style.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js"></script>
     <script src="./js-api/app.js" type="module"></script>
     <title>View Blog</title>
   </head>
@@ -16,7 +17,7 @@
           <img src="./assets/user.jpg" width="40px" height="40px">
           <div class="dropdown-content">
             <a href="#" id="profileLink" onclick="viewBlog('blogId')">Profile</a>
-            <a href="#" id="updateLink">Update Profile</a>
+            <a href="#" id="updateLink" onclick="updateUser('userId')">Update Profile</a>
             <a href="#" id="logout">Logout</a>
           </div>
         </div>

@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/blogs_style.css">
     <link rel="stylesheet" href="./css/style.css">
-    <!-- <script src="./js-api/app.js" type="module"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/3.1.2/jwt-decode.min.js"></script>
+
+    <script src="./js-api/app.js" type="module"></script>
     
     <title>Blogs</title>
 </head>
@@ -18,7 +20,7 @@
               <img src="./assets/user.jpg" width="40px" height="40px">
               <div class="dropdown-content">
                 <a href="#" id="profileLink">Profile</a>
-                <a href="#" id="updateLink">Update Profile</a>
+                <a href="#" id="updateLink" onclick="updateUser('user._Id')">Update Profile</a>
                 <a href="#" id="logout">Logout</a>
               </div>
             </div>
@@ -32,11 +34,9 @@
           <div id="profileModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
-              <span class="close">&times;</span>
+              <span class="close" onclick="closeModal()">&times;</span>
               <h2>User Profile</h2>
-              <!-- Add your profile details here -->
-              <p>Username: John Doe</p>
-              <p>Email: johndoe@example.com</p>
+            <div id="userDetails"></div>
               <!-- Add more details as needed -->
              
             </div>
