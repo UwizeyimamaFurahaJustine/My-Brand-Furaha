@@ -10,7 +10,7 @@
 
 <body>
     <div class="navbar">
-    <div class="nav__logo"><a href="#">Furahax</a></div>
+    <div class="nav__logo"><a href="index.html">Furahax</a></div>
     <nav class="nav">
         
         <div class="openMenu"><i class="fa fa-bars"></i></div>
@@ -393,6 +393,23 @@
         </div>
         <p class="footer-copyright">Copyright 2024 All Rights Reserved</p>
     </footer>
+    <script>
+     document.addEventListener("DOMContentLoaded", function() {
+    const openMenu = document.querySelector(".openMenu");
+    const closeMenu = document.querySelector(".closeMenu");
+    const navLinks = document.querySelector(".nav__links");
+
+    // Function to open the menu
+    openMenu.addEventListener("click", function() {
+        navLinks.style.display = "flex"; // Display the navigation links
+    });
+
+    // Function to close the menu
+    closeMenu.addEventListener("click", function() {
+        navLinks.style.display = "none"; // Hide the navigation links
+    });
+});
+    </script>
     <script src="./js-api/frontblogs.js"></script>
     <script src="./js-api/sendmessage.js"></script>
 </body>

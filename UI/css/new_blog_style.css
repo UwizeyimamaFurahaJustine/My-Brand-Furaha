@@ -41,6 +41,10 @@ body{
     
   
 }
+.table-reponsive{
+  width: 100%;
+  overflow-x: auto;
+}
 
 
   .blog-form {
