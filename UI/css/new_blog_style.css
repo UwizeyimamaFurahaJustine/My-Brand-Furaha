@@ -233,3 +233,24 @@ button{
   width: 20%; /* Could be more or less, depending on screen size */
 
 }
+/* Add this media query at the end of your CSS file */
+@media screen and (max-width: 768px) {
+  .form-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .input-field {
+    width: 100%;
+  }
+
+  .form-group {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+

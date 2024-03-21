@@ -634,3 +634,69 @@ button{
   text-decoration: none;
   cursor: pointer;
 }
+
+.alert {
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+/* Add this media query at the end of your CSS file */
+@media screen and (max-width: 768px) {
+  .table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .table-container table {
+    min-width: 100%;
+  }
+  
+  .table-container thead {
+    display: none;
+  }
+  
+  .table-container tbody {
+    display: block;
+    width: 100%;
+  }
+  
+  .table-container tr {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .table-container td {
+    display: block;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .table-container td::before {
+    content: attr(data-label);
+    font-weight: bold;
+  }
+}
+.modal-content {
+  margin: 10% auto;
+  width: 80%;
+  max-width: 400px;
+}
+.modal form {
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+}
+.modal-content p {
+  font-size: 14px;
+  line-height: 1.4;
+}

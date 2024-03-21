@@ -146,7 +146,7 @@ function deleteUser(userId) {
         .then(response => {
             if (response.ok) {
                 alert('User deleted successfully');
-                fetchUsers();
+                location.reload();
             }
         })
         .catch(error => {

@@ -13,12 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const blogTableBody = document.getElementById('blogTableBody');
 
             data.forEach(blog => {
+                var description = blog.description;
+                description = description.substring(0, 90) + "...";
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td>${blog._id}</td>
                     <td><img src="${baseURL}/images/${blog.image}" alt="${blog.title}" style="width: 100px; height: auto;"></td>
                     <td>${blog.title}</td>
-                    <td>${blog.description}</td>
+                    <td>${description}</td>
                     <td>${blog.commentsNo}</td>
                     <td>${blog.likesNo}</td>
                     <td>${blog.createdAt}</td>
@@ -35,45 +37,46 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
             console.error('Error fetching blogs:', error);
         });
-
-    // Add event listener for updateForm if it exists
-    const updateForm = document.getElementById('updateForm');
-    if (updateForm) {
-        updateForm.addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Get form data
-            const formData = new FormData(this);
-
-            // Extract the blog ID from the form data
-            const blogId = formData.get('blogId');
-
-            // Send an HTTP PUT request to update the blog
-            fetch(`https://api-furahax.onrender.com/blogs/${blogId}`, {
-                method: 'PUT',
-                body: formData,
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Add the user's authentication token
-                }
-            })
+        const updateForm = document.getElementById('updateForm');
+        if (updateForm) {
+            updateForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent the default form submission
+        
+                const formData = new FormData(this);
+                const blogId = formData.get('blogId');
+        
+                fetch(`https://api-furahax.onrender.com/blogs/${blogId}`, {
+                    method: 'PUT',
+                    body: formData,
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                })
                 .then(response => {
+                    console.log('Response:', response);
                     if (response.ok) {
-                        alert('Blog updated successfully');
-                        location.reload();
-                        // Optionally, redirect to the blog page or update the UI
+                        console.log('Response is ok');
+                        const successMessage = document.createElement('div');
+                        successMessage.classList.add('alert');
+                        successMessage.textContent = 'Blog updated successfully';
+                        document.body.appendChild(successMessage);
+        
+                        setTimeout(() => {
+                            successMessage.remove();
+                            location.reload();
+                        }, 3000);
                     }
                     return response.json();
                 })
                 .then(data => {
-                    // Handle the response from the backend
                     console.log('Blog updated:', data);
                 })
                 .catch(error => {
                     console.error('Error updating blog:', error);
                 });
-        });
-    }
-});
+            });
+        }
+    });        
 
 // Function to handle click on the "View" button for a blog
 function viewBlog(blogId) {

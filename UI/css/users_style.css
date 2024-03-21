@@ -517,4 +517,17 @@ main{
     width: 20%; /* Could be more or less, depending on screen size */
   
   }
+  @media screen and (max-width: 768px) {
+    table {
+      width: 100%;
+    }
   
+    th, td {
+      padding: 10px;
+      font-size: 12px;
+    }
+  
+    .table-reponsive {
+      overflow-x: auto;
+    }
+  }

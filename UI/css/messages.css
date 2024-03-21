@@ -516,3 +516,34 @@ main{
   width: 20%; /* Could be more or less, depending on screen size */
 
 }
+/* Add this media query at the end of your CSS file */
+@media screen and (max-width: 768px) {
+  table {
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+
+  thead, tbody, tr, td, th {
+    display: block;
+  }
+
+  tr {
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+  }
+
+  td, th {
+    border: none;
+    text-align: left;
+    padding: 8px;
+    vertical-align: middle;
+  }
+
+  tbody td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    width: 50%;
+  }
+}

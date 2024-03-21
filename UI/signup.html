@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode-module@1.0.4/build/jwt-decode.min.js"></script>
     <script src="./js-api/app.js"></script>
     
     <title>Sign Up</title>
@@ -82,6 +83,12 @@
         </form>
     </div>
 </div>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modal-message"></p>
+    </div>
+  </div>
 <script>
     // Function to check if user is authenticated
     function isAuthenticated() {

@@ -1,9 +1,5 @@
 // app.js
 
-// const { jwtDecode } = require("jwt-decode");
-
-
-
 // Function to check if user is authenticated
 function isAuthenticated() {
     const token = localStorage.getItem('token');
@@ -51,13 +47,16 @@ function redirectNonUser() {
     }
 }
 
-// Example usage in protected pages
-if (document.getElementById('adminPage')) {
-    redirectUnauthorized(); // Protect admin page
-    redirectNonAdmin(); // Redirect non-admin users
-}
+// Ensure jwtDecode function is accessible after jwt-decode.min.js is loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Example usage in protected pages
+    if (document.getElementById('adminPage')) {
+        redirectUnauthorized(); // Protect admin page
+        redirectNonAdmin(); // Redirect non-admin users
+    }
 
-if (document.getElementById('userPage')) {
-    redirectUnauthorized(); // Protect user page
-    redirectNonUser(); // Redirect non-user users
-}
+    if (document.getElementById('userPage')) {
+        redirectUnauthorized(); // Protect user page
+        redirectNonUser(); // Redirect non-user users
+    }
+});
