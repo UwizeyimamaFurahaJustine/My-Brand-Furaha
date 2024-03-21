@@ -55,16 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(response => {
                     console.log('Response:', response);
                     if (response.ok) {
-                        console.log('Response is ok');
-                        const successMessage = document.createElement('div');
-                        successMessage.classList.add('alert');
-                        successMessage.textContent = 'Blog updated successfully';
-                        document.body.appendChild(successMessage);
-        
-                        setTimeout(() => {
-                            successMessage.remove();
-                            location.reload();
-                        }, 3000);
+                        alert('Blog deleted successfully');
+                        location.reload();
                     }
                     return response.json();
                 })
