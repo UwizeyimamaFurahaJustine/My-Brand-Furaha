@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(response => {
                     console.log('Response:', response);
                     if (response.ok) {
-                        alert('Blog deleted successfully');
+                        alert('Blog updated successfully');
                         location.reload();
                     }
                     return response.json();
